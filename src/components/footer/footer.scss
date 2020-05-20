@@ -1,0 +1,15 @@
+.foot-container{
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #000000;
+  padding-top: 24px;
+  img{
+    width: 100px;
+  }
+  .header-links{
+    span:nth-child(n+2){
+      margin-left: 36px;
+    }
+  }
+}

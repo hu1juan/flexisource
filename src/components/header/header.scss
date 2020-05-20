@@ -1,0 +1,13 @@
+.nav-container{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 100px;
+  }
+  .header-links{
+    span:nth-child(n+2){
+      margin-left: 36px;
+    }
+  }
+}
