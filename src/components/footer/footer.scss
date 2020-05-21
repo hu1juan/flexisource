@@ -5,9 +5,15 @@
   border-top: 2px solid #000000;
   padding-top: 24px;
   padding-bottom: 53px;
+
+  span.anticon{
+    display: none;
+  }
+
   img{
     width: 100px;
   }
+  
   .header-links{
     span:nth-child(n+2){
       margin-left: 36px;

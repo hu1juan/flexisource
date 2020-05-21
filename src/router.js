@@ -4,15 +4,20 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import ListPageContextProvider from './contexts/ListPageContext';
 
 const LISTPAGE = lazy(() => import('./pages/ListPage'));
+const SINGLEVIEWPAGE = lazy(() => import('./pages/SingleViewPage'));
 
 function MyRoute() {
   return (
     <Router>
       <Switch>
         <Suspense fallback={<div>LOADING...</div>}>
-          <Route exact path='/' component={LISTPAGE} />
+          <ListPageContextProvider>
+            <Route exact path='/' component={LISTPAGE} />
+            <Route exact path='/:id' component={SINGLEVIEWPAGE} />
+          </ListPageContextProvider>
         </Suspense>
       </Switch>
     </Router>

@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useReducer } from 'react';
-import { listPageReducer } from '../reducers/ListPageReducer';
+import React, { useEffect, useState, useContext } from 'react';
 import MainLayout from '../components/layout/MainLayout';
+import { ListPageContext } from '../contexts/ListPageContext';
 import Card from '../components/commons/Card';
 import responseFromApi from '../feed/data.json';
 import { Row, Col, Spin } from 'antd';
 
 const ListPage = () => {
-  const initialState = { listData: [], selectedCat: {} }
-  const [listDataSource, dispatch] = useReducer(listPageReducer, initialState)
+  const { dispatch, listDataSource } = useContext(ListPageContext);
   const [isLoading, setLoading] = useState(true);
   const { listData } = listDataSource;
 
@@ -18,20 +17,21 @@ const ListPage = () => {
       dispatch({ type: 'GET_LIST', data });
       setLoading(false);
     }, 1500)
-  }, []);
+  }, [dispatch]);
 
   return (
     <MainLayout>
-      <Spin spinning={isLoading} />
-      <Row gutter={[{ xs: 0, sm: 0, md: 32 }, { xs: 64, sm: 64, md: 64 }]} style={{ marginTop: '60px' }}>
-        {listData.map((el, ind) => {
-          return (
-            <Col md={{ span: 12 }} sm={{ span: 24 }} key={ind}>
-              <Card el={el} />
-            </Col>
-          )
-        })}
-      </Row>
+      <Spin spinning={isLoading} tip='Please wait while we are gathering your data...'>
+        <Row gutter={[{ xs: 0, sm: 0, md: 32 }, { xs: 64, sm: 64, md: 64 }]} style={{ marginTop: '60px' }}>
+          {listData.map((el, ind) => {
+            return (
+              <Col md={{ span: 12 }} sm={{ span: 24 }} key={ind}>
+                <Card el={el} />
+              </Col>
+            )
+          })}
+        </Row>
+      </Spin>
     </MainLayout>
   );
 }

@@ -8,6 +8,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Noto-Sans-Georgian-Regular';
+    src:url('./assets/fonts/georgia/Noto-Sans-Georgian-Regular.ttf.woff') format('woff'),
+        url('./assets/fonts/georgia/Noto-Sans-Georgian-Regular.ttf.svg#Noto-Sans-Georgian-Regular') format('svg'),
+        url('./assets/fonts/georgia/Noto-Sans-Georgian-Regular.ttf.eot'),
+        url('./assets/fonts/georgia/Noto-Sans-Georgian-Regular.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: 'Arial';
