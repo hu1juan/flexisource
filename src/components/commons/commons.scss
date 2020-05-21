@@ -1,0 +1,24 @@
+.card-container{
+  img{
+    width: 100%;
+  }
+  p{
+    margin: 24px 0 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+  }
+  div{
+    margin-top: 32px;
+    span{
+      font-size: 12px;
+      font-weight: bold;
+      color: blue;
+      cursor: pointer;
+
+      &:first-child{
+        margin-right: 16px;
+      }
+    }
+  }
+}
